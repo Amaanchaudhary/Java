@@ -6,7 +6,11 @@ public class challenges {
 //        System.out.println(factorial(1));
 //        System.out.println(sumOfDigits(234));
 //        System.out.println(lcm(15, 20));
-        System.out.println(gcd(7, 5));
+//        System.out.println(gcd(7, 5));
+//        System.out.println(isPrime(9));
+//        System.out.println(reverseNumber(100));
+//        printFibonacci(1);
+        System.out.println(isArmStrong(154));
     }
 
     public static int oddSum(int num) {
@@ -61,5 +65,64 @@ public class challenges {
             i--;
         }
         return gcd;
+    }
+
+    public static boolean isPrime(int num) {
+        int i = 2;
+        while (i < num) {
+            if (num % i == 0) {
+                return false;
+            }
+            i++;
+        }
+        return true;
+    }
+
+    public static int reverseNumber(int num) {
+        int result = 0;
+        while (num > 0) {
+            int lastDigit = num % 10; //Extract Last Digit of Number
+            result *= 10; // Shift result one digit left 0 -> 10
+            result += lastDigit; // Add Last Digit into result
+            num /= 10; // Remove Last digit from number
+        }
+        return result;
+    }
+
+    public static void printFibonacci(int num) {
+        if (num < 0) return;
+        System.out.print("0 ");
+        if (num == 0) return;
+        System.out.print("1 ");
+
+        int first = 0, second = 1;
+        while (first + second <= num) {
+            int third = first + second;
+            System.out.print(third + " ");
+            first = second;
+            second = third;
+        }
+    }
+
+    public static boolean isArmStrong(int num) {
+        int count = countDigit(num);
+        int numCopy = num;
+        int result = 0;
+
+        while (num > 0) {
+            int digit = num % 10;
+            num /= 10;
+            result += (int) Math.pow(digit, count);
+        }
+        return result == numCopy;
+    }
+
+    public static int countDigit(int num) {
+        int digits = 0;
+        while (num > 0) {
+            digits++;
+            num /= 10;
+        }
+        return digits;
     }
 }
