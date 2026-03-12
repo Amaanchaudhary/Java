@@ -10,7 +10,11 @@ public class challenges {
 //        System.out.println(isPrime(9));
 //        System.out.println(reverseNumber(100));
 //        printFibonacci(1);
-        System.out.println(isArmStrong(154));
+//        System.out.println(isArmStrong(154));
+//        System.out.println(palindromeNumber(12321));
+//        rightHalfPiramid(5);
+//        reverseRightHalfPiramid(5);
+        leftHalfPiramid(10);
     }
 
     public static int oddSum(int num) {
@@ -124,5 +128,60 @@ public class challenges {
             num /= 10;
         }
         return digits;
+    }
+
+    public static boolean palindromeNumber(int num) {
+        return num == reverseNumber(num);
+    }
+
+    public static void rightHalfPiramid(int num) {
+        int i = 0;
+        while (i < num) {
+            int j = 0;
+            while (j <= i) {
+                System.out.print("* ");
+                j++;
+            }
+            i++;
+            if (i != num) {
+                System.out.println();
+            }
+        }
+    }
+
+    public static void reverseRightHalfPiramid(int num) {
+        int i = num;
+        while (i > 0) {
+            int j = i;
+            while (j > 0) {
+                System.out.print("* ");
+                j--;
+            }
+            i--;
+            if (i != 0) {
+                System.out.println();
+            }
+        }
+    }
+
+    public static void leftHalfPiramid(int num) {
+        int i = 1;
+        while (i <= num) {
+            int j = 1;
+            int spaces = num - i;
+            while (j <= num) {
+                if(spaces > 0){
+                    System.out.print("  ");
+                }else{
+                    System.out.print("* ");
+                }
+                j++;
+                spaces--;
+            }
+            i++;
+            if (i <= num) {
+                System.out.println();
+            }
+        }
     }
 }
