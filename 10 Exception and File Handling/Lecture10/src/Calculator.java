@@ -1,4 +1,3 @@
-package Lecture10.src;
 
 import java.util.Scanner;
 
