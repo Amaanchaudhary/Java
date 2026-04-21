@@ -19,6 +19,5 @@ public class NeedOfMultiThreading {
         System.out.println("\nHash Task Completed");
         long end = System.currentTimeMillis();
         System.out.printf("total time taken %d ms", (end - start));
-
     }
 }
